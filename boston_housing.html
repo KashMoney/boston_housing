@@ -13894,7 +13894,7 @@ Max_depth = 1 has low variance, but high bias, as the training score is fairly l
     <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
 
     <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="p">)}</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)}</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
@@ -14139,9 +14139,6 @@ Range in prices: $69,044.61
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The data is likely not as applicable in  real-world setting today due to several factors.  Inflation has greatly changed prices since 1978, so the prices would not be accurate.  Additionally, there are probably other factors that would play a role, like square fotage, rather than number of rooms, and there may be better metrics for quality of school.  Area of the city likely plays a role, as houses closer to downtown likely cost more than similar homes farther away.</p>
-<p>The model does seem to make consistent predictions, which is a positive.  Using grid search we ensured that we aren't overfitting.  A highly variant model would not be as robust as it would fluctuate a lot even with similar housing.</p>
-<p>The data probably is not as applicable in a rural setting, as things like how far away a school is likely play a role that isn't captured in this data set.  Additionally rural communities use property for things like farming, so size of land and weather play an important role.</p>
 
 </div>
 </div>
@@ -14152,6 +14149,9 @@ Range in prices: $69,044.61
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
+<p>The data is likely not as applicable in  real-world setting today due to several factors.  Metrics such as LSTAT and PRatio could have greatly changed since 1978.  Additionally, there are probably other factors that would play a role, like square fotage, rather than number of rooms, and there may be better metrics for quality of school.  Area of the city likely plays a role, as houses closer to downtown likely cost more than similar homes farther away.</p>
+<p>The model is likely not a robust model, since the range from above in prices was 69k, which is a very wide range (Customers would not be happy if I was real estate agent and I was off by 70k, which could be around 17% of the ultimate price).  This wide range leads to inconsistent predictions, and thus not a very robust model.</p>
+<p>The data probably is not as applicable in a rural setting, as things like how far away a school is likely play a role that isn't captured in this data set.  Additionally rural communities use property for things like farming, so size of land and weather play an important role.</p>
 
 </div>
 </div>
